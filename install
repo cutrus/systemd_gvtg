@@ -1,4 +1,5 @@
 run.sh > /etc/environment.d/20gvtg.conf
+cp 10-qemu.rule /etc/udev/rules.d/
 cp gvtvgpu.service /etc/systemd/system/gvtvgpu.service
 systemctl enable gvtvgpu.service
 systemctl start gvtvgpu.service
