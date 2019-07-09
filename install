@@ -1,0 +1,4 @@
+run.sh > /etc/environment.d/20gvtg.conf
+cp gvtvgpu.service /etc/systemd/system/gvtvgpu.service
+systemctl enable gvtvgpu.service
+systemctl start gvtvgpu.service

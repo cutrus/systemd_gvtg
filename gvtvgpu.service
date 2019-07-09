@@ -1,0 +1,12 @@
+[Unit]
+Description=Create Intel GVT-g vGPU
+
+[Service]
+Type=oneshot
+EnvironmentFile=/etc/environment.d/20gvtg.conf
+ExecStart=/bin/sh -c "echo \"$GVT_GUID\" > \"/sys/devices/pci${GVT_DOM}/${GVT_PCI}/mdev_supported_types/${GVT_TYPE}/create\""
+ExecStop=/bin/sh -c "echo '1' > \"/sys/bus/pci/devices/${GVT_PCI}/${GVT_GUID}/remove\""
+RemainAfterExit=yes
+
+[Install]
+WantedBy=graphical.target
